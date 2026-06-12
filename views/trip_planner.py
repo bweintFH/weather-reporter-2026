@@ -6,7 +6,7 @@ import json
 import os
 from database import get_cached_airports
 
-API_GATEWAY_URL = os.getenv('API_GATEWAY_URL', '')
+API_GATEWAY_URL = "https://vp6vpcafzh.execute-api.us-east-1.amazonaws.com"
 
 def fetch_trip_report(route_str):
     if not API_GATEWAY_URL: return None

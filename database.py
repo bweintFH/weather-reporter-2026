@@ -11,13 +11,7 @@ load_dotenv()
 @st.cache_resource
 def init_dynamodb():
     """ Initializes the DynamoDB connection globally """
-    return boto3.resource(
-        'dynamodb',
-        region_name=os.getenv('AWS_DEFAULT_REGION', 'us-east-1'),
-        aws_access_key_id=os.getenv('AWS_ACCESS_KEY_ID'),
-        aws_secret_access_key=os.getenv('AWS_SECRET_ACCESS_KEY'),
-        aws_session_token=os.getenv('AWS_SESSION_TOKEN')
-    )
+    return boto3.resource('dynamodb', region_name='us-east-1')
 
 @st.cache_data(ttl=86400) # Cache strictly for 24 hours
 def get_cached_airports():
